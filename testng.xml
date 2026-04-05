@@ -3,8 +3,15 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
           name="C:/Users/Acer/IdeaProjects/AutomationPractice/src/test/java/org/example/Tests">
+        <listeners>
+            <listener class-name="Utils.TestListener"/>
+        </listeners>
+        <test name="org.example.Tests">
         <classes>
+            <class name="org.example.Tests.WebTablesVerification"/>
+            <class name="org.example.Tests.AmazonHeadPhoneSearch"/>
             <class name="org.example.Tests.TableWindows"/>
         </classes>
+        </test>
     </test>
 </suite>
