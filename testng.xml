@@ -8,9 +8,7 @@
         </listeners>
         <test name="org.example.Tests">
         <classes>
-            <class name="org.example.Tests.WebTablesVerification"/>
-            <class name="org.example.Tests.AmazonHeadPhoneSearch"/>
-            <class name="org.example.Tests.TableWindows"/>
+            <class name="org.example.Tests.FaceBookCreateAccountAutomation"/>
         </classes>
         </test>
     </test>

@@ -14,10 +14,6 @@ public class Utils {
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.presenceOfElementLocated(Locator));
     }
-    public static boolean pagecontins(WebDriver driver,String title){
-        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
-        return wait.until(ExpectedConditions.titleContains(title));
-    }
     public static WebDriverWait getWait(WebDriver driver, int seconds) {
         return new WebDriverWait(driver, Duration.ofSeconds(seconds));
     }
@@ -25,5 +21,12 @@ public class Utils {
     public static boolean pageContains(WebDriver driver, String text) {
         return driver.getPageSource().contains(text);
     }
-
+    public static void WaitForVisibilityOfTheElement(WebDriver driver,By Locator){
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(Locator));
+    }
+    public static void WaitForElementToBeClickable(WebDriver driver,By Locator){
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(Locator));
+    }
 }
