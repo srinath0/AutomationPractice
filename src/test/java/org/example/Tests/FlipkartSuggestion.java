@@ -1,10 +1,7 @@
 package org.example.Tests;
 
 import org.example.pages.Utils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -17,6 +14,7 @@ public class FlipkartSuggestion {
     public void phonesuggestion() throws InterruptedException {
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.flipkart.com/");
+        driver.manage().window().maximize();
         Utils.WaitForVisibilityOfTheElement(driver,By.xpath("//span[@role='button']"));
         driver.findElement(By.xpath("//span[@role='button']")).click();
         Utils.getWait(driver,10);
@@ -25,12 +23,14 @@ public class FlipkartSuggestion {
         WebElement mobileNumber = driver.findElement(By.xpath("//span[contains(text(),'Enter Email/Mobile number')]"));
         Utils.getWait(driver,10);
         Actions actions = new Actions(driver);
-        actions.moveToElement(mobileNumber).sendKeys("8341670694").sendKeys(Keys.ENTER).build().perform();
-        Thread.sleep(35000);
+        actions.moveToElement(mobileNumber).sendKeys("9581734787").sendKeys(Keys.ENTER).build().perform();
+        Thread.sleep(50000);
         //driver.findElement(By.xpath("(//button[@type='submit'])[2]")).click();
         Utils.getWait(driver,10);
-        Utils.conditionWait(driver, By.xpath("(//button[@title='Search for Products, Brands and More'])[2]/following-sibling::div"));
-        WebElement searchBox= driver.findElement(By.xpath("(//button[@title='Search for Products, Brands and More'])[2]/following-sibling::div"));
+        Utils.conditionWait(driver, By.xpath("(//input[@title='Search for Products, Brands and More'])[2]"));
+        Utils.WaitForVisibilityOfTheElement(driver,By.xpath("(//input[@title='Search for Products, Brands and More'])[2]"));
+        WebElement searchBox= driver.findElement(By.xpath("(//input[@title='Search for Products, Brands and More'])[2]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", searchBox);
         searchBox.sendKeys("phone");
         Utils.getWait(driver,15);
         Utils.WaitForVisibilityOfTheElement(driver,By.tagName("li"));
